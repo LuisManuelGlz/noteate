@@ -1,15 +1,19 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { SignInDto } from './dtos';
-import { Token } from './interfaces/token.interface';
+import { Controller, Post, Body } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { UserForSignInDto, UserForSignUpDto } from './dtos';
+import { JwtAuthGuard } from './guards';
 
 @Controller('auth')
 export class AuthController {
-  @Post()
-  signIn(@Body() signInDto: SignInDto): Token {
-    return { tokenType: 'Bearer', accessToken: 'abc', expiresIn: 1 };
+  constructor(private authService: AuthService) {}
+
+  @Post('signin')
+  signIn(@Body() userForSignInDto: UserForSignInDto) {
+    return this.authService.signIn(userForSignInDto);
   }
 
-  signUp(@Body() signUp: SignInDto): Token {
-    return { tokenType: 'Bearer', accessToken: 'abc', expiresIn: 1 };
+  @Post('signup')
+  signUp(@Body() userForSignUpDto: UserForSignUpDto) {
+    return this.authService.signUp(userForSignUpDto);
   }
 }
