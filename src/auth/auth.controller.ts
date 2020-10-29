@@ -5,7 +5,7 @@ import { JwtAuthGuard } from './guards';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Post('signin')
   signIn(@Body() userForSignInDto: UserForSignInDto) {

@@ -23,7 +23,7 @@ export class AuthService {
 
   async signIn({ email, password }: UserForSignInDto) {
     const user = await this.validateUser(email, password);
-
+    console.log(this.configService.get<string>('DATABASE_URL'));
     if (!user) {
       throw new UnauthorizedException();
     }
