@@ -6,11 +6,12 @@ import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
 import { NotesModule } from './notes/notes.module';
+import databaseConfig from './config/database.config';
 
 @Module({
   imports: [
     MongooseModule.forRootAsync({
-      imports: [ConfigModule],
+      imports: [ConfigModule.forRoot({ load: [databaseConfig] })],
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get<string>('DATABASE_URL'),
       }),
