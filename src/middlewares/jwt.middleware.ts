@@ -9,7 +9,7 @@ export class JwtMiddleware implements NestMiddleware {
 
     try {
       const cleanToken = token.replace('Bearer', '').trim();
-      const decoded = jwt.decode(cleanToken);
+      const decoded: any = jwt.decode(cleanToken);
       req.sub = decoded.sub;
     } catch (error) {
       console.log(error);

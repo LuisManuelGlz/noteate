@@ -7,12 +7,12 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('signin')
-  signIn(@Body() userForSignInDto: UserForSignInDto) {
-    return this.authService.signIn(userForSignInDto);
+  async signIn(@Body() userForSignInDto: UserForSignInDto) {
+    return await this.authService.signIn(userForSignInDto);
   }
 
   @Post('signup')
-  signUp(@Body() userForSignUpDto: UserForSignUpDto) {
-    return this.authService.signUp(userForSignUpDto);
+  async signUp(@Body() userForSignUpDto: UserForSignUpDto) {
+    return await this.authService.signUp(userForSignUpDto);
   }
 }

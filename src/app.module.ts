@@ -14,6 +14,7 @@ import { JwtMiddleware } from './middlewares/jwt.middleware';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get<string>('DATABASE_URL'),
+        useCreateIndex: true,
       }),
       inject: [ConfigService],
     }),
