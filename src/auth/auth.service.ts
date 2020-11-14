@@ -28,7 +28,7 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('Email or password are incorrect');
     }
-    const payload = { sub: user._id, email: user.email };
+    const payload = { sub: user._id, name: user.name, email: user.email };
     return {
       tokenType: this.configService.get<string>('TOKEN_TYPE'),
       accessToken: this.jwtService.sign(payload),
@@ -43,7 +43,7 @@ export class AuthService {
     }
 
     const user = await this.usersService.create(userForSignUpDto);
-    const payload = { sub: user._id, email: user.email };
+    const payload = { sub: user._id, name: user.name, email: user.email };
     return {
       tokenType: this.configService.get<string>('TOKEN_TYPE'),
       accessToken: this.jwtService.sign(payload),
