@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build:client": "rm -rf ./dist/client && npm run build --prefix client && mv ./client/dist/client ./dist/client",
-    "build": "npm install --prefix client && nest build && npm run build:client",
+    "build": "nest build && npm run build:client",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "concurrently 'nest start --watch' 'npm run start --prefix client'",
@@ -43,6 +43,7 @@
     "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
+    "@angular/cli": "^10.1.5",
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
