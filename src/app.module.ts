@@ -12,7 +12,7 @@ import { JwtMiddleware } from './middlewares/jwt.middleware';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'client'),
+      rootPath: join(__dirname, 'client'),
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
