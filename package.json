@@ -43,6 +43,7 @@
     "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^0.1001.5",
     "@angular/cli": "^10.1.5",
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
