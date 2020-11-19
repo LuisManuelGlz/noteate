@@ -7,8 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build:client": "rm -rf ./dist/client && npm run build --prefix client && mv ./client/dist/client ./dist/client",
-    "build": "nest build && npm run build:client",
+    "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "concurrently 'nest start --watch' 'npm run start --prefix client'",
