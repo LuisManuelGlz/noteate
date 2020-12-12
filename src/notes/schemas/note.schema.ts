@@ -3,10 +3,10 @@ import { Document, Schema as MongooseSchema } from 'mongoose';
 
 export type NoteDocument = Note & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Note {
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'User', required: true })
-  owner: MongooseSchema.Types.ObjectId | string;
+  owner: MongooseSchema.Types.ObjectId;
 
   @Prop({ required: true })
   title: string;
